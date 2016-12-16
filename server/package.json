@@ -8,6 +8,8 @@
     "start": "nodejs server.js"
   },
   "dependencies": {
-    "express": "latest"
+    "express": "latest",
+    "sillyname": "latest",
+    "socket.io": "latest"
   }
 }

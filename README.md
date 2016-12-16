@@ -8,4 +8,4 @@ sudo docker run -p 8080:8080 -d node-chat-server
 
 You can then create the container for the client with the following command...
 
-sudo docker run --name docker-nginx -p 8081:8081 -d -v ~/docker-nginx/html:/usr/share/nginx/html nginx
+sudo docker run --name docker-nginx -p 80:80 -d -v ~/docker-nginx/html/client:/usr/share/nginx/html nginx
