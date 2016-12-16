@@ -23,6 +23,7 @@ io.on('connection', function(socket){
 
 	socket.on('disconnect', function(){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
+		socket.broadcast.emit('RemoveUser', socket.id);
 	});
 
 	socket.on('SendMessage', function(msg){

@@ -23,4 +23,13 @@ angular.module('ChatApp', []).controller('ChatController', function($scope) {
     $scope.$apply();
   });
 
+  socket.on('RemoveUser', function(id){
+    for(var i = 0; i < chat.users.length; i++)
+    {
+      if(chat.users[i].userId == id)
+        chat.users.splice(i,1);
+    }
+    $scope.$apply();
+  });
+
 });
