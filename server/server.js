@@ -23,7 +23,7 @@ io.on('connection', function(socket){
 
 	socket.on('disconnect', function(){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
-		users.splice(users.indexOf(socket.id),1);
+		users.splice(socket.id,1);
 		socket.broadcast.emit('users', GetUserList());
 	});
 
