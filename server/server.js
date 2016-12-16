@@ -17,7 +17,7 @@ io.on('connection', function(socket){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
 	});
 
-	socket.on('message', function(msg){
+	socket.on('SendMessage', function(msg){
 		socket.broadcast.emit('message', users[socket.id] + ": " + msg);
 	});
 });
