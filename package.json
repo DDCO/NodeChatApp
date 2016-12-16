@@ -1,0 +1,13 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Chat App",
+  "author": "Daniel Oliveira <dan.da.cruz.oliveira@gmail.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodejs server.js"
+  },
+  "dependencies": {
+    "express": "latest"
+  }
+}
