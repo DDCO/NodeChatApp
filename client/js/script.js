@@ -1,4 +1,4 @@
-angular.module('ChatApp', []).controller('ChatController', function() {
+angular.module('ChatApp', []).controller('ChatController', function($scope) {
   var chat = this;
   var socket = io('http://localhost:8080'); 
 
@@ -15,10 +15,12 @@ angular.module('ChatApp', []).controller('ChatController', function() {
 
   socket.on('message', function(msg){
     chat.messages.push({class:'received', text:msg});
+    $scope.$apply();
   });
 
   socket.on('users', function(users){
     chat.users = users;
+    $scope.$apply();
   });
 
 });
