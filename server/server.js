@@ -3,7 +3,7 @@ var http = require('http').Server(app);
 var io = require('socket.io')(http);
 var generateName = require('sillyname');
 
-var users = Array();
+var users = {};
 
 function GetUserList()
 {
@@ -19,11 +19,11 @@ io.on('connection', function(socket){
 	var username = generateName();
 	users[socket.id] = username;
 	socket.broadcast.emit('message', "user " + users[socket.id] + " has entered the chat");
-	socket.emit('users', GetUserList());
+	io.sockets.emit('users', GetUserList());
 
 	socket.on('disconnect', function(){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
-		users.splice(socket.id,1);
+		delete users[socket.id];
 		socket.broadcast.emit('users', GetUserList());
 	});
 
