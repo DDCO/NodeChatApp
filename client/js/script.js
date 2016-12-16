@@ -1,7 +1,6 @@
 angular.module('ChatApp', []).controller('ChatController', function() {
   var chat = this;
-  var socket = new io.Socket();
-  socket.connect('http://127.0.0.1:8080'); 
+  var socket = io('http://localhost:8080'); 
 
   chat.text = "";
 
