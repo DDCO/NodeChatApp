@@ -1,0 +1,11 @@
+.sent {
+	text-align: right;
+	width: 40%;
+	float: right;
+}
+
+.received {
+	width: 40%;
+}
+
+.panel { margin-top: 100px; }
