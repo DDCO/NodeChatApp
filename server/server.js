@@ -24,10 +24,16 @@ io.on('connection', function(socket){
 	socket.on('disconnect', function(){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
 		socket.broadcast.emit('RemoveUser', socket.id);
+		for(var i = 0; i < users.length; i++)
+	    {
+	      if(users[i].userId == id)
+	        users.splice(i,1);
+	    }
 	});
 
 	socket.on('SendMessage', function(msg){
-		socket.broadcast.emit('message', msg);
+		var text = users[socket.id] + ": " + msg;
+		socket.broadcast.emit('message', text);
 	});
 });
 
