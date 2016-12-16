@@ -11,7 +11,7 @@ io.on('connection', function(socket){
 	var username = generateName();
 	users[socket.id] = username;
 	socket.broadcast.emit('message', "user " + users[socket.id] + " has entered the chat");
-	socket.emit('users', users);
+	socket.emit('users', 'test');
 
 	socket.on('disconnect', function(){
 		socket.broadcast.emit('message', "user " + users[socket.id] + " has left the chat");
