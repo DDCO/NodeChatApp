@@ -9,8 +9,8 @@ angular.module('ChatApp', []).controller('ChatController', function($scope) {
   chat.messages = Array();
 
   chat.SendMessage = function(){
-    socket.emit('SendMessage', chat.text);
     chat.messages.push({class:'sent', text:msg});
+    socket.emit('SendMessage', chat.text);
   };
 
   socket.on('message', function(msg){
