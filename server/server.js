@@ -10,7 +10,7 @@ io.on('connection', function(socket){
 	//Create name and send client its name
 	var username = generateName();
 	users[socket.id] = username;
-	socket.broadcast.emit('message', "user " + users[socket.id] + " has entered the chat");
+	//socket.broadcast.emit('message', "user " + users[socket.id] + " has entered the chat");
 	socket.emit('users', 'test');
 
 	socket.on('disconnect', function(){
