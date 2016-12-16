@@ -18,8 +18,8 @@ angular.module('ChatApp', []).controller('ChatController', function($scope) {
     $scope.$apply();
   });
 
-  socket.on('users', function(obj){
-    chat.users = obj.u;
+  socket.on('users', function(u){
+    chat.users = u;
     $scope.$apply();
   });
 
