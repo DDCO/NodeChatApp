@@ -18,7 +18,7 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('SendMessage', function(msg){
-		socket.broadcast.emit('message', users[socket.id] + ": " + msg);
+		socket.broadcast.emit('message', msg);
 	});
 });
 
