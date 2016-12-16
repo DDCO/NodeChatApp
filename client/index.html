@@ -11,15 +11,32 @@
 		<div class='container'>
 			<div class='row'>
 				<div class='col-sm-12'>
-					<div class="panel panel-default" ng-controller="ChatController as chat">
+					<div class="panel panel-default chat-window" ng-controller="ChatController as chat">
 						<!-- Default panel contents -->
 						<div class="panel-heading">Chat Title</div>
 						<div class="panel-body">
-							<div class="row" ng-repeat="msg in chat.messages">
-								<div class="col-sm-12">
-									<div class="well {{msg.class}}">{{msg.text}}</div>
+							<div class="row">
+								<div class="col-sm-9">
+									<div class="row" ng-repeat="msg in chat.messages">
+										<div class="col-sm-12">
+											<div class="well {{msg.class}}">{{msg.text}}</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-sm-3">
+									<div class="row">
+										<div class="col-sm-12">
+											<div class="panel panel-default">
+  												<div class="panel-heading">Users</div>
+												<ul class="list-group">
+													<li class="list-group-item" ng-repeat="usr in chat.users">{{usr}}</li>
+												</ul>
+											</div>
+										</div>
+									</div>
 								</div>
 							</div>
+							
 							<div class="row">
 								<div class="col-sm-12">
 							    	<div class="input-group">
