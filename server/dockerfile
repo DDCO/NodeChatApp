@@ -8,6 +8,7 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 RUN npm install --save express
 RUN npm install --save socket.io
+RUN npm install sillyname
 
 # Bundle app source
 COPY . /usr/src/app
