@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="ChatApp">
 	<head>
 		<meta charset="UTF-8" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
@@ -11,26 +11,21 @@
 		<div class='container'>
 			<div class='row'>
 				<div class='col-sm-12'>
-					<div class="panel panel-default">
+					<div class="panel panel-default" ng-controller="ChatController as chat">
 						<!-- Default panel contents -->
 						<div class="panel-heading">Chat Title</div>
 						<div class="panel-body">
-							<div class="row">
+							<div class="row" ng-repeat="msg in chat.messages">
 								<div class="col-sm-12">
-									<div class="well received">Hi!</div>
-								</div>
-							</div>
-							<div class="row">
-								<div class="col-sm-12">
-									<div class="well sent">Hi Dan</div>
+									<div class="well {{msg.class}}">{{msg.text}}</div>
 								</div>
 							</div>
 							<div class="row">
 								<div class="col-sm-12">
 							    	<div class="input-group">
-							      		<input type="text" class="form-control" placeholder="Enter message here"/>
+							      		<input type="text" class="form-control" placeholder="Enter message here" ng-model="chat.text"/>
 										<span class="input-group-btn">
-											<button class="btn btn-default" type="button">Send</button>
+											<button class="btn btn-default" type="button" ng-click="chat.SendMessage()">Send</button>
 										</span>
 									</div><!-- /input-group -->
 								</div><!-- /.col-lg-6 -->
@@ -44,5 +39,7 @@
 		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
+		<script src="js/script.js"></script>
 	</body>
 </html>
